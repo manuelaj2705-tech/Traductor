@@ -22,7 +22,6 @@ div[data-testid="stBokehChart"]{
 st.markdown("<h2 style='text-align: center;'>Bienvenido al traductor</h2>", unsafe_allow_html=True)
 st.subheader("""
     La herramienta procesará tu mensaje y te mostrará la traducción de forma rápida y sencilla para facilitar la comprensión
-    entre diferentes idiomas.
     """)
 
 image = Image.open('traductor.png')
