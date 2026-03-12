@@ -10,6 +10,15 @@ import glob
 from gtts import gTTS
 from googletrans import Translator
 
+# Quitar fondo blanco del botón de Bokeh
+st.markdown("""
+<style>
+div[data-testid="stBokehChart"]{
+    background-color: transparent !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.title("TRADUCTOR.")
 st.subheader("Escucho lo que quieres traducir.")
 
