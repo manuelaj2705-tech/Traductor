@@ -19,9 +19,8 @@ div[data-testid="stBokehChart"]{
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Bienvenido al traductor")
+st.markdown("<h2 style='text-align: center;'>Bienvenido al traductor</h2>", unsafe_allow_html=True)
 st.subheader("""
-    Escribe el texto que deseas traducir en el campo correspondiente y selecciona el idioma al que quieres traducirlo.
     La herramienta procesará tu mensaje y te mostrará la traducción de forma rápida y sencilla para facilitar la comprensión
     entre diferentes idiomas.
     """)
