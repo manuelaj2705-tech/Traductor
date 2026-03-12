@@ -35,16 +35,15 @@ with st.sidebar:
     entre diferentes idiomas.
     """)
 
-st.write("Toca el Botón y habla lo que quires traducir")
-
-stt_button = Button(label=" Escuchar  🎤", width=300,  height=50)
+st.write("Presiona el micrófono y habla para traducir tu mensaje.")
+stt_button = Button(label=" Escuchar  🎤", width=300, height=50)
 
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = false;
     recognition.interimResults = true;
     recognition.lang = 'es-ES';
- 
+"""))
     recognition.onresult = function (e) {
         var value = "";
         for (var i = e.resultIndex; i < e.results.length; ++i) {
