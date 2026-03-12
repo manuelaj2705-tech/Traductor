@@ -26,7 +26,7 @@ st.subheader("""
     entre diferentes idiomas.
     """)
 
-image = Image.open('traductor.jpg')
+image = Image.open('traductor.png')
 st.image(image,width=300)
 
 with st.sidebar:
