@@ -15,18 +15,19 @@ from gtts import gTTS
 from googletrans import Translator
 
 
-st.title("TRADUCTOR.")
-st.subheader("Escucho lo que quieres traducir.")
 
 
-image = Image.open('OIG7.jpg')
+
+image = Image.open('traductor de imagenes.jpg')
 
 st.image(image,width=300)
 with st.sidebar:
-    st.subheader("Bienvenido al traductor.")
-    st.write("Escribe el texto que deseas traducir en el campo correspondiente y selecciona el idioma al que quieres traducirlo.
-    La herramienta procesará tu mensaje y te mostrará la traducción de forma rápida y sencilla para facilitar la comprensión
-    entre diferentes idiomas.")
+    st.markdown("<h2 style='text-align: center;'>Bienvenido al traductor</h2>", unsafe_allow_html=True)
+    st.write("""
+    Escribe el texto que deseas traducir en el campo correspondiente y selecciona el idioma
+    al que quieres traducirlo. La herramienta procesará tu mensaje y te mostrará la traducción
+    de forma rápida y sencilla para facilitar la comprensión entre diferentes idiomas.
+    """)
 
 
 st.write("Toca el Botón y habla lo que quires traducir")
