@@ -19,8 +19,12 @@ div[data-testid="stBokehChart"]{
 </style>
 """, unsafe_allow_html=True)
 
-st.title("TRADUCTOR.")
-st.subheader("Escucho lo que quieres traducir.")
+st.title("Bienvenido al traductor")
+st.subheader("""
+    Escribe el texto que deseas traducir en el campo correspondiente y selecciona el idioma al que quieres traducirlo.
+    La herramienta procesará tu mensaje y te mostrará la traducción de forma rápida y sencilla para facilitar la comprensión
+    entre diferentes idiomas.
+    """)
 
 image = Image.open('traductor.jpg')
 st.image(image,width=300)
