@@ -13,9 +13,146 @@ from googletrans import Translator
 # Quitar fondo blanco del botón de Bokeh
 st.markdown("""
 <style>
-div[data-testid="stBokehChart"]{
-    background-color: transparent !important;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Fondo y base ── */
+html, body, [data-testid="stAppViewContainer"] {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e) !important;
+    color: #e8e0f0 !important;
 }
+
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* ── Sidebar ── */
+[data-testid="stSidebar"] {
+    background: rgba(255,255,255,0.04) !important;
+    border-right: 1px solid rgba(255,255,255,0.08) !important;
+    backdrop-filter: blur(12px);
+}
+
+[data-testid="stSidebar"] * {
+    color: #d4c8f0 !important;
+    font-family: 'DM Sans', sans-serif !important;
+}
+
+/* ── Tipografía general ── */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif !important;
+    color: #f0eaff !important;
+    letter-spacing: -0.5px;
+}
+
+p, div, span, label, .stMarkdown {
+    font-family: 'DM Sans', sans-serif !important;
+    color: #c8bfe0 !important;
+}
+
+/* ── Título principal ── */
+[data-testid="stMarkdownContainer"] h2 {
+    font-size: 2.2rem !important;
+    background: linear-gradient(90deg, #c084fc, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+/* ── Subtítulo ── */
+[data-testid="stMarkdownContainer"] p {
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+    color: #a99ec0 !important;
+}
+
+/* ── Imagen centrada ── */
+[data-testid="stImage"] {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    filter: drop-shadow(0 0 24px rgba(192, 132, 252, 0.35));
+}
+
+/* ── Selectboxes ── */
+[data-testid="stSelectbox"] > div > div {
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(192, 132, 252, 0.3) !important;
+    border-radius: 12px !important;
+    color: #e8e0f0 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    transition: border-color 0.2s ease;
+}
+
+[data-testid="stSelectbox"] > div > div:hover {
+    border-color: rgba(192, 132, 252, 0.7) !important;
+}
+
+[data-testid="stSelectbox"] label {
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 500 !important;
+    color: #c084fc !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* ── Botón "convertir" ── */
+[data-testid="stButton"] > button {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 0.6rem 2rem !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.45) !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+[data-testid="stButton"] > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 28px rgba(124, 58, 237, 0.6) !important;
+}
+
+/* ── Checkbox ── */
+[data-testid="stCheckbox"] label {
+    font-family: 'DM Sans', sans-serif !important;
+    color: #c8bfe0 !important;
+}
+
+/* ── Audio player ── */
+audio {
+    width: 100%;
+    border-radius: 12px;
+    filter: hue-rotate(240deg) saturate(0.8);
+}
+
+/* ── Texto de salida ── */
+[data-testid="stMarkdownContainer"] h2 + * {
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid #c084fc;
+    padding: 0.75rem 1rem;
+    border-radius: 0 10px 10px 0;
+}
+
+/* ── Bokeh (botón de micrófono) ── */
+div[data-testid="stBokehChart"] {
+    background-color: transparent !important;
+    display: flex;
+    justify-content: center;
+}
+
+/* ── Divisores ── */
+hr {
+    border-color: rgba(192, 132, 252, 0.2) !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(192,132,252,0.3); border-radius: 10px; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -186,12 +323,3 @@ if result:
                     print("Deleted ", f)
 
     remove_files(7)
-        
-    
-
-
-
-        
-    
-
-
