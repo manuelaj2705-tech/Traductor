@@ -17,12 +17,12 @@ st.markdown("""
 
 /* ── Fondo y base ── */
 html, body, [data-testid="stAppViewContainer"], [data-testid="stMain"], .main {
-    background: #0a0a0a !important;
-    color: #e8e0f0 !important;
+    background: #ffffff !important;
+    color: #1a1a2e !important;
 }
 
 [data-testid="stMainBlockContainer"] {
-    background: #0a0a0a !important;
+    background: #ffffff !important;
 }
 
 [data-testid="stHeader"] {
@@ -31,13 +31,12 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stMain"], .main {
 
 /* ── Sidebar ── */
 [data-testid="stSidebar"] {
-    background: rgba(255,255,255,0.04) !important;
-    border-right: 1px solid rgba(255,255,255,0.08) !important;
-    backdrop-filter: blur(12px);
+    background: #f3f0ff !important;
+    border-right: 1px solid rgba(124, 58, 237, 0.15) !important;
 }
 
 [data-testid="stSidebar"] * {
-    color: #d4c8f0 !important;
+    color: #2d2d4e !important;
     font-family: 'DM Sans', sans-serif !important;
 }
 
@@ -50,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p, div, span, label, .stMarkdown {
     font-family: 'DM Sans', sans-serif !important;
-    color: #c8bfe0 !important;
+    color: #2d2d4e !important;
 }
 
 /* ── Título principal ── */
@@ -66,7 +65,7 @@ p, div, span, label, .stMarkdown {
 [data-testid="stMarkdownContainer"] p {
     font-size: 0.95rem !important;
     line-height: 1.7 !important;
-    color: #a99ec0 !important;
+    color: #5a5a7a !important;
 }
 
 /* ── Layout organizado ── */
@@ -102,10 +101,10 @@ h1 {
 
 /* ── Selectboxes ── */
 [data-testid="stSelectbox"] > div > div {
-    background: rgba(255,255,255,0.06) !important;
-    border: 1px solid rgba(192, 132, 252, 0.3) !important;
+    background: #f8f5ff !important;
+    border: 1px solid rgba(124, 58, 237, 0.25) !important;
     border-radius: 12px !important;
-    color: #e8e0f0 !important;
+    color: #1a1a2e !important;
     font-family: 'DM Sans', sans-serif !important;
     transition: border-color 0.2s ease;
 }
@@ -146,7 +145,7 @@ h1 {
 /* ── Checkbox ── */
 [data-testid="stCheckbox"] label {
     font-family: 'DM Sans', sans-serif !important;
-    color: #c8bfe0 !important;
+    color: #2d2d4e !important;
 }
 
 /* ── Audio player ── */
@@ -168,8 +167,8 @@ audio {
 div[data-testid="stBokehChart"],
 div[data-testid="stBokehChart"] > *,
 div[data-testid="stBokehChart"] iframe {
-    background-color: #0a0a0a !important;
-    background: #0a0a0a !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 }
 
 div[data-testid="stBokehChart"] {
@@ -205,7 +204,7 @@ st.markdown("""
                 var doc = iframe.contentDocument || iframe.contentWindow.document;
                 if (!doc) return;
                 var style = doc.createElement('style');
-                style.textContent = 'html,body{background:#0a0a0a!important;} .bk,.bk-root,.bk-canvas-wrapper,.bk-plot-wrapper,.bk-toolbar-box{background:#0a0a0a!important;}';
+                style.textContent = 'html,body{background:#ffffff!important;} .bk,.bk-root,.bk-canvas-wrapper,.bk-plot-wrapper,.bk-toolbar-box{background:#ffffff!important;}';
                 doc.head && doc.head.appendChild(style);
             } catch(e) {}
         });
