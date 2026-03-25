@@ -125,7 +125,7 @@ h1 {
 /* ── Botón "convertir" ── */
 [data-testid="stButton"] > button {
     background: linear-gradient(135deg, #7c3aed, #4f46e5) !important;
-    color: white !important;
+    color: #7c3aed !important;
     border: none !important;
     border-radius: 12px !important;
     padding: 0.6rem 2rem !important;
