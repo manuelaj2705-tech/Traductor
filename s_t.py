@@ -16,9 +16,13 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap');
 
 /* ── Fondo y base ── */
-html, body, [data-testid="stAppViewContainer"] {
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e) !important;
+html, body, [data-testid="stAppViewContainer"], [data-testid="stMain"], .main {
+    background: #0a0a0a !important;
     color: #e8e0f0 !important;
+}
+
+[data-testid="stMainBlockContainer"] {
+    background: #0a0a0a !important;
 }
 
 [data-testid="stHeader"] {
@@ -163,25 +167,19 @@ audio {
 /* ── Bokeh (botón de micrófono) ── */
 div[data-testid="stBokehChart"],
 div[data-testid="stBokehChart"] > *,
-div[data-testid="stBokehChart"] .bk-root,
-div[data-testid="stBokehChart"] .bk,
-div[data-testid="stBokehChart"] canvas,
-.bk-canvas-events,
-.bk-toolbar-box,
-.bk-plot-wrapper,
-.bk-root .bk,
-.bk-root {
-    background-color: transparent !important;
-    background: transparent !important;
+div[data-testid="stBokehChart"] iframe {
+    background-color: #0a0a0a !important;
+    background: #0a0a0a !important;
 }
 
 div[data-testid="stBokehChart"] {
     display: flex;
     justify-content: center;
+    border-radius: 14px;
+    overflow: hidden;
 }
 
-/* Forzar fondo negro/transparente en todos los elementos Bokeh */
-.bk-root * {
+.bk-root, .bk-root *, .bk, .bk * {
     background-color: transparent !important;
 }
 
@@ -195,6 +193,30 @@ hr {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(192,132,252,0.3); border-radius: 10px; }
 </style>
+""", unsafe_allow_html=True)
+
+# ── Inyectar CSS dentro del iframe de Bokeh para matar el fondo blanco ──
+st.markdown("""
+<script>
+(function fixBokehBg() {
+    function inject() {
+        document.querySelectorAll('iframe').forEach(function(iframe) {
+            try {
+                var doc = iframe.contentDocument || iframe.contentWindow.document;
+                if (!doc) return;
+                var style = doc.createElement('style');
+                style.textContent = 'html,body{background:#0a0a0a!important;} .bk,.bk-root,.bk-canvas-wrapper,.bk-plot-wrapper,.bk-toolbar-box{background:#0a0a0a!important;}';
+                doc.head && doc.head.appendChild(style);
+            } catch(e) {}
+        });
+    }
+    setTimeout(inject, 300);
+    setTimeout(inject, 1000);
+    setTimeout(inject, 2500);
+    var observer = new MutationObserver(inject);
+    observer.observe(document.body, {childList: true, subtree: true});
+})();
+</script>
 """, unsafe_allow_html=True)
 
 st.markdown("<h2 style='text-align: center;'>Bienvenido al traductor</h2>", unsafe_allow_html=True)
