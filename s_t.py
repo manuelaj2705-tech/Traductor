@@ -65,12 +65,35 @@ p, div, span, label, .stMarkdown {
     color: #a99ec0 !important;
 }
 
+/* ── Layout organizado ── */
+[data-testid="stAppViewContainer"] > section > div {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
 /* ── Imagen centrada ── */
 [data-testid="stImage"] {
     display: flex;
     justify-content: center;
-    margin: 1rem auto;
+    margin: 0.5rem auto 2rem auto;
     filter: drop-shadow(0 0 24px rgba(192, 132, 252, 0.35));
+}
+
+/* ── Espaciado entre controles ── */
+[data-testid="stSelectbox"],
+[data-testid="stCheckbox"],
+[data-testid="stButton"] {
+    margin-bottom: 0.6rem !important;
+}
+
+/* ── Título h1 "Texto a Audio" ── */
+h1 {
+    font-size: 1.6rem !important;
+    color: #c084fc !important;
+    border-bottom: 1px solid rgba(192, 132, 252, 0.2);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.2rem !important;
 }
 
 /* ── Selectboxes ── */
@@ -138,10 +161,28 @@ audio {
 }
 
 /* ── Bokeh (botón de micrófono) ── */
-div[data-testid="stBokehChart"] {
+div[data-testid="stBokehChart"],
+div[data-testid="stBokehChart"] > *,
+div[data-testid="stBokehChart"] .bk-root,
+div[data-testid="stBokehChart"] .bk,
+div[data-testid="stBokehChart"] canvas,
+.bk-canvas-events,
+.bk-toolbar-box,
+.bk-plot-wrapper,
+.bk-root .bk,
+.bk-root {
     background-color: transparent !important;
+    background: transparent !important;
+}
+
+div[data-testid="stBokehChart"] {
     display: flex;
     justify-content: center;
+}
+
+/* Forzar fondo negro/transparente en todos los elementos Bokeh */
+.bk-root * {
+    background-color: transparent !important;
 }
 
 /* ── Divisores ── */
